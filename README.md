@@ -2,7 +2,7 @@
 
 
 
-## **Deploy the Discuz forum using K8S and access it using the Nginx proxy  **
+## **Deploy the Discuz forum using K8S and access it using the Nginx proxy**
 
 ### **system structure drawing：**
 
