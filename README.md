@@ -57,28 +57,28 @@ kubectl exec -it mysql-5f87f4495c-9stsn  -- mysql -uroot -proot
 
 
 ```
-apiVersion: apps/v1         # apiserver的版本
-kind: Deployment            # 副本控制器deployment，管理pod和RS
+apiVersion: apps/v1         
+kind: Deployment           
 metadata:
-  name: discuz              # deployment的名称，全局唯一
+  name: discuz              
 spec:
-  replicas: 1               # Pod副本期待数量
+  replicas: 1             
   selector:
-    matchLabels:            # 定义RS的标签
-      app: discuz           # 符合目标的Pod拥有此标签
-  strategy:                 # 定义升级的策略
-    type: RollingUpdate     # 滚动升级，逐步替换的策略
-  template:                 # 根据此模板创建Pod的副本（实例）
+    matchLabels:         
+      app: discuz           
+  strategy:                
+    type: RollingUpdate     
+  template:                
     metadata:
       labels:
-        app: discuz         # Pod副本的标签，对应RS的Selector
+        app: discuz        
     spec:
-      containers:           # Pod里容器的定义部分
-        - name: discuz      # 容器的名称
+      containers:           
+        - name: discuz      
           image: skyzhou/docker-discuz
           ports:
             - containerPort: 80
-          env:              # 写入到容器内的环境容量
+          env:             
             - name: MYSQL_PORT_3306_TCP
               value: **172.16.254.96:3306**
             - name: DISCUZ_DB_PASSWORD
