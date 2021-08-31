@@ -52,7 +52,6 @@ kubectl exec -it mysql-5f87f4495c-9stsn  -- mysql -uroot -proot
 
 -  \# vim discuz-dp.yml
 
-**Need to modify MYSQL_PORT_3306_TCP corresponding key value to ${mysql-service LUSTER-IP:port}**
 
 
 
@@ -80,7 +79,7 @@ spec:
             - containerPort: 80
           env:             
             - name: MYSQL_PORT_3306_TCP
-              value: **172.16.254.96:3306**
+              value: mysql-service:3306
             - name: DISCUZ_DB_PASSWORD
               value: root
 ```
